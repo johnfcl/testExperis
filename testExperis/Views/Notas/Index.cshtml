@@ -1,0 +1,46 @@
+﻿@model IEnumerable<testExperis.Models.Notas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Crear nuevas notas</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
